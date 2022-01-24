@@ -6,7 +6,7 @@ public class RootManager : Manager
         
     }
 
-    public override void Init()
+    public override void DeclareDependencies()
     {
         
     }

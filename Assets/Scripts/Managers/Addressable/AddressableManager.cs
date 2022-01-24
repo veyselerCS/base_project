@@ -6,10 +6,6 @@ using Zenject;
 
 public class AddressableManager : Manager
 {
-    public override void Init()
-    {
-    }
-
     public override void Begin()
     {
         Resolve();

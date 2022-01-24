@@ -3,10 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeManager : Manager
 {
-    public override void Init()
-    {
-    }
-
     public override void Begin()
     {
         Resolve();

@@ -11,14 +11,18 @@ public abstract class Manager : MonoBehaviour, IDisposable
     private bool _resolved;
     public virtual void Awake()
     {
-        Init();
+        DeclareDependencies();
         _dependencyResolver.Register(this);
         _signalBus.Subscribe<DependencyCycleCheckCompleteEvent>(OnDependencyCycleCheckComplete);
         _signalBus.Subscribe<ManagerResolvedEvent>(OnManagerResolvedEvent);
     }
 
-    public abstract void Init();
-
+    public virtual void DeclareDependencies()
+    {
+        
+    }
+    
+    //must be overriden for calling the resolve method
     public abstract void Begin();
 
     protected void Resolve()

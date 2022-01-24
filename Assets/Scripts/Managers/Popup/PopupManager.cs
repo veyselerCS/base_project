@@ -13,7 +13,7 @@ public class PopupManager : Manager
     
     private List<BasePopup> _activePopups = new List<BasePopup>();
 
-    public override void Init()
+    public override void DeclareDependencies()
     {
         _dependencyList.Add(_addressableManager);
     }

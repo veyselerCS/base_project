@@ -6,7 +6,7 @@ using Zenject;
 public class LoadingManager : Manager
 {
     [Inject] private PopupManager _popupManager;
-    public override void Init()
+    public override void DeclareDependencies()
     {
         _dependencyList.Add(_popupManager);
     }
