@@ -12,7 +12,7 @@ public class PopupManager : Manager
     public Canvas PopupCanvas;
     
     private List<BasePopup> _activePopups = new List<BasePopup>();
-
+    
     public override void DeclareDependencies()
     {
         _dependencyList.Add(_addressableManager);
@@ -23,11 +23,11 @@ public class PopupManager : Manager
         Resolve();
     }
 
-    public async void Show(BasePopupData data)
+    public async void Show<TPopupData>(TPopupData data) where TPopupData : BasePopupData
     {
        var popupGO = await _addressableManager.LoadAsset<GameObject>(data.Name);
-       BasePopup popup = Instantiate(popupGO, PopupCanvas.transform).GetComponent<BasePopup>();
-       popup.SetPopupData(data);
+       BasePopup<TPopupData> popup = Instantiate(popupGO, PopupCanvas.transform).GetComponent<BasePopup<TPopupData>>();
+       popup.PopupData = data;
        _activePopups.Add(popup);
     }
     
