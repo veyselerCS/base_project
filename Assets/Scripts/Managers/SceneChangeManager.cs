@@ -12,7 +12,7 @@ public class SceneChangeManager : Manager
         Resolve();
     }
 
-    public async void ChangeScene(string sceneName, Action onComplete = null)
+    public void ChangeScene(string sceneName, Action onComplete = null)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive).completed += (asyncOperation) =>
         {

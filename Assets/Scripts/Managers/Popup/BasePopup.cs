@@ -3,32 +3,25 @@ using UnityEngine;
 
 public abstract class BasePopup : MonoBehaviour, IDisposable
 {
-    public BasePopupData PopupData;
+    public abstract void SetPopupData(BasePopupData data);
+    public abstract BasePopupData GetPopupData();
 
-
-    public BasePopup(BasePopupData data)
-    {
-        PopupData = data;
-    }
-    
     public void Dispose()
     {
-    }
-    
-    protected BasePopup()
-    {
-        Debug.LogWarning("Popup created without it's data");
     }
 }
 
 public class BasePopup<TPopupData> : BasePopup where TPopupData : BasePopupData
 {
-    public BasePopup(TPopupData data) : base(data)
+    public TPopupData PopupData;
+
+    public override void SetPopupData(BasePopupData data)
     {
+        PopupData = (TPopupData)data;
     }
 
-    protected BasePopup()
+    public override BasePopupData GetPopupData()
     {
-        
+        return PopupData;
     }
 }

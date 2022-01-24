@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,8 @@ public class PopupManager : Manager
     [Inject(Id = ZenjectIdConstants.PopupCanvas)]
     public Canvas PopupCanvas;
     
+    private List<BasePopup> _activePopups = new List<BasePopup>();
+
     public override void Init()
     {
         _dependencyList.Add(_addressableManager);
@@ -23,6 +26,21 @@ public class PopupManager : Manager
     public async void Show(BasePopupData data)
     {
        var popupGO = await _addressableManager.LoadAsset<GameObject>(data.Name);
-       var popup = Instantiate(popupGO, PopupCanvas.transform);
+       BasePopup popup = Instantiate(popupGO, PopupCanvas.transform).GetComponent<BasePopup>();
+       popup.SetPopupData(data);
+       _activePopups.Add(popup);
+    }
+    
+    public void Hide(string name)
+    {
+        for (int i = 0; i < _activePopups.Count; i++)
+        {
+            var popup = _activePopups[i];
+            if (popup.GetPopupData().Name == name)
+            {
+                _activePopups.RemoveAt(i);
+                DestroyImmediate(popup.gameObject);
+            }
+        }
     }
 }
