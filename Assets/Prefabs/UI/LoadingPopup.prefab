@@ -161,6 +161,8 @@ GameObject:
   - component: {fileID: 4653501786966545608}
   - component: {fileID: 2978680258225646733}
   - component: {fileID: 6252837588046331766}
+  - component: {fileID: 728416430315218255}
+  - component: {fileID: 5202466630368832768}
   m_Layer: 5
   m_Name: LoadingPopup
   m_TagString: Untagged
@@ -225,6 +227,31 @@ MonoBehaviour:
   _PlayAutomatically: 1
   _Animations:
   - {fileID: 7400000, guid: 9785e6348a51f4444aae35f5c589f9b5, type: 2}
+--- !u!114 &728416430315218255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797693986814711241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b76f7e2e3c4f44ba8631cf7a860939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5202466630368832768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797693986814711241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &3370526468641937997
 GameObject:
   m_ObjectHideFlags: 0

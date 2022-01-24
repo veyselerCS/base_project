@@ -4,7 +4,8 @@ using UnityEngine;
 public abstract class BasePopup : MonoBehaviour, IDisposable
 {
     public BasePopupData PopupData;
-    
+
+
     public BasePopup(BasePopupData data)
     {
         PopupData = data;
