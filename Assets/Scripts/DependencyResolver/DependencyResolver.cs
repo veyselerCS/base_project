@@ -82,7 +82,7 @@ public class DependencyResolver : MonoBehaviour
     private bool IsDependencyGraphCyclicRecursive(Node<Manager> node, Dictionary<Node<Manager>, bool> stack,
         Dictionary<Node<Manager>, bool> visited)
     {
-        //we already see this on this recursion stack so there must be 
+        //we already see this node on this recursion stack so there must be a cycle
         if (stack[node])
         {
             Debug.LogWarning("Cyclic dependency at manager : " + node.Value.gameObject.name);
@@ -102,7 +102,7 @@ public class DependencyResolver : MonoBehaviour
             if (IsDependencyGraphCyclicRecursive(child, stack, visited))
                 return true;
 
-        //end of this recursion tree remove this node from the current recursion stack
+        //end of this recursion tree. Remove this node from the current recursion stack
         stack[node] = false;
 
         return false;
